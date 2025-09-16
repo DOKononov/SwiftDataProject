@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct EditeUserView: View {
+    @Bindable var user: User
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            TextField("User name", text: $user.name)
+            TextField("User city", text: $user.city)
+            DatePicker("Join date", selection: $user.joinDate, displayedComponents: .date)
+        }
+        .navigationTitle("Edite user")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    EditeUserView()
+    EditeUserView(user: User(name: "Test", city: "Test", joinDate: .now))
 }
