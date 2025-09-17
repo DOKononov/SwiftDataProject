@@ -19,7 +19,7 @@ struct UsersView: View {
 
                 Spacer()
                 
-                Text("\(user.jobs.count)")
+                Text("\(user.unwrappedJobs.count)")
                     .fontWeight(.bold)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 5)
@@ -45,7 +45,7 @@ struct UsersView: View {
         let job2 = Job(name: "Koder", priority: 3)
         
         modelContext.insert(newUser)
-        newUser.jobs.append(contentsOf: [job1, job2])
+        newUser.jobs?.append(contentsOf: [job1, job2])
         
     }
 }

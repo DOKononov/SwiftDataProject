@@ -10,8 +10,8 @@ import SwiftData
 
 @Model
 final class Job {
-    var name: String
-    var priority: Int
+    var name: String = "Noname"
+    var priority: Int = 1
     var owner: User?
     
     init(name: String, priority: Int, owner: User? = nil) {
