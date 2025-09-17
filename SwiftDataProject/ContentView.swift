@@ -23,15 +23,13 @@ struct ContentView: View {
             .toolbar {
                 Button("Add samples", systemImage: "plus") {
 
-                    if let url = container.configurations.first?.url {
-                        print("Store URL:", url.path)
-                    }
                     let new = User(
                         name: ["Alice", "Bob", "Charlie", "Diana"].randomElement() ?? "User",
                         city: ["Berlin", "Paris", "London", "New York"].randomElement() ?? "City",
                         joinDate: Date()
                     )
                     modelContext.insert(new)
+                    try? modelContext.save()
                 }
                 Button("wipe", systemImage: "trash") {
                     try? modelContext.delete(model: User.self)
