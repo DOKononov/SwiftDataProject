@@ -8,12 +8,17 @@
 import SwiftUI
 import SwiftData
 
+
+let config = ModelConfiguration(for: User.self)
+let container = try! ModelContainer(for: User.self, configurations: config)
+
 @main
 struct SwiftDataProjectApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: User.self)
+        .modelContainer(container)
     }
+    
 }
